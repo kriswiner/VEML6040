@@ -1,4 +1,7 @@
 # VEML6040
+
+![}(https://cloud.githubusercontent.com/assets/6698410/15089861/0bfd6398-13c3-11e6-97d1-ac30505ee763.jpg)
+
 Teensiduino sketch for Vishay's VEML6040 RGBW color sensor
 
  Demonstrate basic VEML6040 functionality including parameterizing the register addresses, initializing the sensor, 
