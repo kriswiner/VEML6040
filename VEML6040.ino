@@ -63,7 +63,7 @@ enum IT {
 // Specify VEML6070 Integration time
 uint8_t IT = IT_160;
 uint8_t ITime = 160;  // milliseconds
-int16_t RGBWData[4] = {0, 0, 0, 0};
+uint16_t RGBWData[4] = {0, 0, 0, 0};
 float GSensitivity = 0.25168/((float) (IT + 1)); // ambient light sensitivity increases with integration time
 
 
@@ -123,7 +123,7 @@ void loop()
 //====== Set of useful function to access UV data
 //===================================================================================================================
 
-uint16_t getRGBWdata(int16_t * destination)
+uint16_t getRGBWdata(uint16_t * destination)
 {
     for (int j = 0; j < 4; j++)
     {
@@ -139,7 +139,7 @@ uint16_t getRGBWdata(int16_t * destination)
         rawData[i++] = Wire.read();       // Put read results in the Rx buffer
     }     
     Wire.endTransmission();
-    destination[j] = ((int16_t) rawData[1] << 8) | rawData[0];
+    destination[j] = ((uint16_t) rawData[1] << 8) | rawData[0]; // 16-bit unsigned integer
     }
  
 }
