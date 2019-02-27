@@ -62,7 +62,7 @@ enum IT {
 
 // Specify VEML6070 Integration time
 uint8_t IT = IT_160;
-uint8_t ITime = 160;  // milliseconds
+uint16_t ITime = 160;  // milliseconds
 uint16_t RGBWData[4] = {0, 0, 0, 0};
 float GSensitivity = 0.25168/((float) (1 << IT)); // ambient light sensitivity increases with integration time
 
