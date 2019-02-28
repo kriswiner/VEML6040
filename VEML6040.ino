@@ -57,12 +57,12 @@ enum IT {
   IT_160,    //  160 ms
   IT_320,    //  320 ms
   IT_640,    //  640 ms
-  IT_1280   // 1280 ms
+  IT_1280    // 1280 ms
 };
 
 // Specify VEML6070 Integration time
 uint8_t IT = IT_160;
-uint8_t ITime = 160;  // milliseconds
+uint16_t ITime = 160;  // milliseconds
 uint16_t RGBWData[4] = {0, 0, 0, 0};
 float GSensitivity = 0.25168/((float) (1 << IT)); // ambient light sensitivity increases with integration time
 
@@ -82,7 +82,7 @@ void setup()
   
   enableVEML6040(); // initalize sensor
  
-  delay(150);
+  delay(ITime + 5);
   
   digitalWrite(myLed, LOW);
 
@@ -185,7 +185,7 @@ void I2Cscan()
     }
     else if (error==4) 
     {
-      Serial.print("Unknow error at address 0x");
+      Serial.print("Unknown error at address 0x");
       if (address<16) 
         Serial.print("0");
       Serial.println(address,HEX);
